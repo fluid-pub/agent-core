@@ -9,9 +9,12 @@ Downstream agents should note **agent-core** upgrades in their own changelogs.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-26
+
 ### Changed
 
 - CI/CodeQL: bump `actions/setup-go` to v6 and `github/codeql-action` to v4.
+- Dependabot: assignees and grouped `github-actions` updates.
 
 ### Security
 
