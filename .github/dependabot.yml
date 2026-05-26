@@ -1,3 +1,5 @@
+# Dependabot version updates for fluid-pub/agent-core.
+# Security alerts are configured separately in repository settings.
 version: 2
 updates:
   - package-ecosystem: gomod
@@ -6,6 +8,9 @@ updates:
       interval: weekly
       day: monday
     target-branch: develop
+    assignees:
+      - "fuse"
+    open-pull-requests-limit: 5
     commit-message:
       prefix: chore(deps)
     labels:
@@ -18,8 +23,15 @@ updates:
       interval: weekly
       day: monday
     target-branch: develop
+    assignees:
+      - "fuse"
+    open-pull-requests-limit: 5
     commit-message:
       prefix: chore(deps)
     labels:
       - dependencies
       - github-actions
+    groups:
+      github-actions:
+        patterns:
+          - "*"

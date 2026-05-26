@@ -1,3 +1,4 @@
+# CodeQL analysis for Go (fluid-pub/agent-core).
 name: CodeQL
 
 on:
