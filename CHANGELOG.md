@@ -11,6 +11,7 @@ Downstream agents should note **agent-core** upgrades in their own changelogs.
 
 ### Security
 
+- Repository security aligned with **probe-core**: `SECURITY.md`, Dependabot assignees and grouped GitHub Actions updates, private vulnerability reporting and push protection enabled on GitHub.
 - **execution**: validate `fluid_log_path` before `os.Stat` / `os.ReadFile` (CodeQL `go/path-injection`); only absolute paths under `/tmp/fluid/`.
 - **execution**: expand `safeFluidLogPath` test coverage (valid/invalid paths, prefix attacks, `startFileLogForwarder` rejection).
 
