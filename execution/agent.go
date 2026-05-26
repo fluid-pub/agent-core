@@ -233,8 +233,9 @@ func (a *Agent) startFileLogForwarder(meta map[string]interface{}, payload map[s
 		return func() {}
 	}
 	logPath, _ := payload["fluid_log_path"].(string)
-	logPath = strings.TrimSpace(logPath)
-	if logPath == "" {
+	safePath, err := safeFluidLogPath(logPath)
+	if err != nil {
+		log.Printf("fluid_log_path rejected: %v", err)
 		return func() {}
 	}
 
@@ -249,7 +250,7 @@ func (a *Agent) startFileLogForwarder(meta map[string]interface{}, payload map[s
 				return
 			default:
 			}
-			info, err := os.Stat(logPath)
+			info, err := os.Stat(safePath)
 			if err != nil {
 				time.Sleep(1 * time.Second)
 				continue
@@ -259,7 +260,7 @@ func (a *Agent) startFileLogForwarder(meta map[string]interface{}, payload map[s
 				lastSize = 0
 			}
 			if size > lastSize {
-				b, err := os.ReadFile(logPath)
+				b, err := os.ReadFile(safePath)
 				if err == nil {
 					chunk := b[int(lastSize):]
 					for _, line := range splitLogLines(string(chunk)) {

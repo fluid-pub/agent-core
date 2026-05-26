@@ -9,6 +9,10 @@ Downstream agents should note **agent-core** upgrades in their own changelogs.
 
 ## [Unreleased]
 
+### Security
+
+- **execution**: validate `fluid_log_path` before `os.Stat` / `os.ReadFile` (CodeQL `go/path-injection`); only absolute paths under `/tmp/fluid/`.
+
 ## [0.1.0] - 2026-05-26
 
 ### Added
