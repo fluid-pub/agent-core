@@ -9,6 +9,10 @@ Downstream agents should note **agent-core** upgrades in their own changelogs.
 
 ## [Unreleased]
 
+### Changed
+
+- CI/CodeQL: bump `actions/setup-go` to v6 and `github/codeql-action` to v4.
+
 ### Security
 
 - Repository security aligned with **probe-core**: `SECURITY.md`, Dependabot assignees and grouped GitHub Actions updates, private vulnerability reporting and push protection enabled on GitHub.
